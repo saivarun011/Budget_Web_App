@@ -51,3 +51,18 @@ Open your web browser and navigate to:
 `http://127.0.0.1:5000`
 
 ## Project Structure
+---
+
+**Steps to update your `README.md`:**
+
+1.  **Open your `README.md` file** in your text editor.
+2.  **Locate the `## Project Structure` heading.**
+3.  **Paste the code block above** (including the `Budget_Web_App/` line and all subsequent lines) directly below that heading.
+4.  **Save the `README.md` file.**
+
+After saving, remember to **add, commit, and push** this change to your GitHub repository so it updates online:
+
+```bash
+git add README.md
+git commit -m "Update README: Add project structure section"
+git push origin master # Or 'git push origin main' if your branch is main
