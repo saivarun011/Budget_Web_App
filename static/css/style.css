@@ -1,0 +1,194 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    /* Define your color palette */
+    --primary-color: #4A90E2; /* A nice blue */
+    --secondary-color: #7B68EE; /* A complementary purple */
+    --accent-color: #FFC107; /* A bright yellow for highlights */
+    --text-dark: #333;
+    --text-light: #f4f4f4;
+    --bg-light: #f8f9fa;
+    --bg-dark: #2c3e50; /* For contrasts */
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--text-dark);
+    min-height: 100vh; /* Ensure full viewport height for gradient */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    background: var(--card-bg);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+    margin: 40px 0; /* Add some margin top/bottom */
+    position: relative; /* For potential absolute positioning of elements inside */
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600; /* Slightly bolder */
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0; /* More bottom margin */
+    display: flex; /* Use flexbox for horizontal nav */
+    justify-content: center; /* Center items */
+    gap: 25px; /* Space between links */
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 700; /* Bolder text */
+    font-size: 1.1em;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+
+/* Forms */
+form {
+    background-color: var(--bg-light);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+form input[type="number"],
+form input[type="text"],
+form input[type="date"],
+form select {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+form input[type="number"]:focus,
+form input[type="text"]:focus,
+form input[type="date"]:focus,
+form select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); /* Focus glow */
+    outline: none;
+}
+
+form button {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    display: block; /* Make button full width if needed, or inline-block */
+    margin: 0 auto; /* Center the button */
+}
+
+form button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* Expense List */
+.expense-list {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin-top: 30px;
+}
+
+.expense-item {
+    background-color: var(--card-bg);
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Card-like shadow */
+    display: flex; /* Use flexbox for item layout */
+    justify-content: space-between; /* Space out content */
+    align-items: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.expense-item:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12); /* Slightly stronger shadow on hover */
+}
+
+.expense-item .details {
+    flex-grow: 1; /* Allow details to take available space */
+}
+
+.expense-item .amount {
+    font-weight: 700;
+    color: var(--danger-color); /* Highlight expense amount */
+    font-size: 1.2em;
+    margin-left: 15px; /* Space from details */
+}
+
+.expense-item span {
+    display: block; /* Make each detail a new line */
+    font-size: 0.9em;
+    color: #666;
+}
+
+.expense-item .category {
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+p {
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 25px;
+        margin: 20px 10px;
+    }
+    nav ul {

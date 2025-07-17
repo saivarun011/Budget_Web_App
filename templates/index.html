@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Web App - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Budget Tracker!</h1>
+	<p>Manage your income and expenses easily.</p>
+	<p>Designed by: Saivarun</p> <nav>
+    		</nav>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/add_expense">Add New Expense</a></li>
+                <li><a href="/add_income">Add New Income</a></li>
+                <li><a href="/transactions">View Transactions</a></li>
+                <li><a href="/summary">Summary</a></li>
+            </ul>
+        </nav>
+
+      	<h2>Current Expenses (In-memory)</h2>
+	{% if expenses %}
+	<ul class="expense-list">
+    		{% for expense in expenses %}
+    		<li class="expense-item">
+        		<div class="details">
+            			<span class="category">{{ expense.category }}</span>
+            			<span>{{ expense.description }} ({{ expense.date }})</span>
+        		</div>
+        		<div class="amount">${{ "%.2f"|format(expense.amount) }}</div>
+    		</li>
+    		{% endfor %}
+	</ul>
+	{% else %}
+	<p>No expenses added yet. Add one!</p>
+	{% endif %}
+    </div>
+</body>
+</html>

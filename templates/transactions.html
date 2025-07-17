@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Web App - Transactions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>All Transactions</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/add_expense">Add New Expense</a></li>
+                <li><a href="/add_income">Add New Income</a></li>
+                <li><a href="/transactions">View Transactions</a></li>
+                <li><a href="/summary">Summary</a></li>
+            </ul>
+        </nav>
+
+        {% if transactions %}
+        <ul class="expense-list"> {# Re-using expense-list for general transactions styling #}
+            {% for t in transactions %}
+            <li class="expense-item"> {# Re-using expense-item #}
+                <div class="details">
+                    <span class="category">
+                        {% if t.type == 'expense' %}
+                            Expense: {{ t.category }}
+                        {% else %}
+                            Income: {{ t.source }}
+                        {% endif %}
+                    </span>
+                    <span>
+                        {{ t.description }} ({{ t.date }})
+                    </span>
+                </div>
+                <div class="amount" style="color: {% if t.type == 'expense' %}var(--danger-color){% else %}var(--success-color){% endif %}">
+                    {% if t.type == 'expense' %}-{% else %}+{% endif %}${{ "%.2f"|format(t.amount) }}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No transactions recorded yet.</p>
+        {% endif %}
+
+    </div>
+</body>
+</html>

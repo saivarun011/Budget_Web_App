@@ -1,0 +1,29 @@
+# Virtual environment
+venv/
+.env/
+env/
+
+# Byte-code files
+*.pyc
+__pycache__/
+
+# Editor backup files
+*~
+*.bak
+
+# Instance folder for Flask (if you use it for configuration)
+instance/
+
+# Database files (if using SQLite directly in project root)
+*.db
+*.sqlite3
+
+# Uploads (if your app handles file uploads)
+/uploads/
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Logs
+*.log
